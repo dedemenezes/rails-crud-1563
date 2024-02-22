@@ -7,4 +7,28 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+  # verb '/path_to_visit', to: 'controller_name#action', as: :prefix
+
+  # SEE ALL
+  get '/restaurants', to: 'restaurants#index', as: :restaurants
+
+  # Receive the form submission
+  post '/restaurants', to: 'restaurants#create'
+
+  # Display the form
+  get '/restaurants/new', to: 'restaurants#new', as: :new_restaurant
+
+  # SEE ONE
+  get '/restaurants/:id', to: 'restaurants#show', as: :restaurant
+
+  # DESTROY
+  delete '/restaurants/:id', to: 'restaurants#destroy'
+
+  # receive the form
+  patch '/restaurants/:id', to: 'restaurants#update'
+
+  # Display the form
+  get '/restaurants/:id/edit', to: 'restaurants#edit', as: :edit_restaurant
+
+  # resources :restaurants, only: [:index]
 end
